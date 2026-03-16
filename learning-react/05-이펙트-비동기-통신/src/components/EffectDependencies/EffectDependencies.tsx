@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import S from './EffectCleanup.module.css'
+import S from './EffectDependencies.module.css'
 
 export default function EffectCleanup() {
   // 타이머 표시/감춤 상태 선언
