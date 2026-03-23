@@ -1,11 +1,12 @@
 
+import { ShoppingCart } from '@/practices'
 import S from './style.module.css'
-import { TodosCrudWithImmer } from '@/components'
+import { DerivedState } from '@/components'
 
 export default function App() {
   return (
     <div className={S.container}>
-      <TodosCrudWithImmer />
+      <ShoppingCart />
     </div>
   )
 }
