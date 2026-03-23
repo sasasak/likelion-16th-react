@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import ProductSearchResult from './parts/ProductSearchResult'
 import ProductSearch from './parts/ProductSearch'
-import productsData from './data/product.json'
+import productsData from './data/products.json'
 import type { Product } from './type/product'
 import S from './style.module.css'
 

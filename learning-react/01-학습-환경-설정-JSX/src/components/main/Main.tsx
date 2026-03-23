@@ -1,6 +1,6 @@
 import Button from '../button/Button'
 import FormField from '../form-field/FormField'
-import Image from '../Image/Image'
+import Image from '../image/Image'
 import styles from './Main.module.css'
 
 export default function Main() {
