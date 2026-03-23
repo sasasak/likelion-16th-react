@@ -1,7 +1,5 @@
-
-import { ShoppingCart } from '@/practices'
+import ShoppingCart from '@/practices/ShoppingCart-step-2/ShoppingCart'
 import S from './style.module.css'
-import { DerivedState } from '@/components'
 
 export default function App() {
   return (
