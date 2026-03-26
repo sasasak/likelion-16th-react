@@ -1,22 +1,25 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
-export function useInput(initialValue = '') {
+/**
+ * useInput 커스텀 훅 v3
+ * @param initialValue 초기값
+ * @returns props: JSX 요소에 주입할 속성 모음
+ * @returns methods: 입력 제어를 위한 메서드 모음
+ */
+export function useInput<T extends HTMLInputElement>(initialValue = '') {
+  const ref = useRef<T>(null)
   const [value, setValue] = useState(initialValue)
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setValue(e.target.value)
-    },
-    []
-  )
+  const onChange = useCallback((e: React.ChangeEvent<T>) => {
+    setValue(e.target.value)
+  }, [])
 
-  const reset = useCallback(() => {
-    setValue(initialValue)
-  }, [initialValue])
+  const reset = useCallback(() => setValue(initialValue), [initialValue])
+  const focus = useCallback(() => { ref.current?.focus() }, [])
+  const select = useCallback(() => { ref.current?.select() }, [])
 
-  // 어떤 모양으로 내보낼까?
-  // - 배열? [] 순서가 중요한 상태 값
-  // - 객체? {} 객체의 키가 중요한 상태 값 ✅
-
-  return { value, handleChange, reset }
+  return { 
+    props: { ref, value, onChange }, 
+    methods: { reset, focus, select } 
+  }
 }
